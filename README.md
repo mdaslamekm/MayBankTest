@@ -39,6 +39,14 @@ customerId: Customer ID (String).
 version: Version field for optimistic locking (Integer). This is crucial for handling concurrent updates.
 
 
+
+
+
+
+
+
+
+
 Design Patterns Used.
 
 1. Repository Pattern :
@@ -72,3 +80,25 @@ This pattern improves the organization, testability, and maintainability of the 
 
 	- DI is a fundamental principle in Spring. Instead of objects creating their dependencies, those dependencies are "injected" into the objects.
 	- @Autowired is Spring's way of marking a constructor, field, or setter method where a dependency should be injected.
+     
+
+
+Class Descriptions :- 
+Transaction: Entity class with fields from datasource.txt and version for optimistic locking.
+TransactionRepository: Spring Data JPA interface for querying transactions.
+TransactionService: Contains business logic for fetching and updating transactions.
+TransactionController: REST controller handling GET/PUT requests.
+BatchConfig: Configures the Spring Batch job
+SecurityConfig: Configures security (Basic Auth, H2 console access).
+GlobalExceptionHandler: Handles ConcurrentUpdateException and returns 409 Conflict. 
+
+ 
+Activity Descriptions:
+Batch Job:
+Reads datasource.txt.
+Processes and writes transactions to the database.
+PUT Request:
+Checks authentication.
+Fetches and updates the transaction.
+Uses optimistic locking (version field) to handle concurrent updates.
+Returns appropriate HTTP status codes (200 OK, 409 Conflict, 404 Not Found, 401 Unauthorized).
