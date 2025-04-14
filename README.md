@@ -1,10 +1,12 @@
 
-
 Test Scenario :
 
 Search by Customer ID	GET /api/transactions?customerId=222
+
 Search by Account Number	GET /api/transactions?accountNumber=8872838283
+
 Search by Description	GET /api/transactions?description=FUND TRANSFER
+
 Combined Filters	GET /api/transactions?customerId=222&description=BILL PAYMENT
 
 
