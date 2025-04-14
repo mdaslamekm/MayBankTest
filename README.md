@@ -93,7 +93,7 @@ SecurityConfig: Configures security (Basic Auth, H2 console access).
 GlobalExceptionHandler: Handles ConcurrentUpdateException and returns 409 Conflict. 
 
  
-Activity Descriptions:
+Activity Descriptions:-
 Batch Job:
 Reads datasource.txt.
 Processes and writes transactions to the database.
